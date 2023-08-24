@@ -77,7 +77,7 @@ function generatePassword() {
 }
 
 
-// Shuffles you password to randomize it
+// Shuffles your password to randomize it
 function shuffleArray (yourPassword) {
   for (var i = yourPassword.length - 1; i > 0; i--) {
 
