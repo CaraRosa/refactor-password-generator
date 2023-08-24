@@ -1,9 +1,13 @@
+/* Universal Selector */
+/* Sizes the card and all other elements correctly */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
+/* Element Selectors and Class Selector */
+/* Sets proper spacing for the entire page */
 html,
 body,
 .wrapper {
@@ -12,17 +16,23 @@ body,
   padding: 0;
 }
 
+/* Element Selector */
+/* Sets font and color for background */
 body {
   font-family: sans-serif;
   background-color: #f9fbfd;
 }
 
+/* Class Selector */
+/* Sets space for the content and box */
 .wrapper {
   padding-top: 30px;
   padding-left: 20px;
   padding-right: 20px;
 }
 
+/* Element Selector */
+/* Styles and sets spacing for the header elements */
 header {
   text-align: center;
   padding: 20px;
@@ -30,6 +40,8 @@ header {
   color: hsl(206, 17%, 28%);
 }
 
+/* Class Selector */
+/* Styles the card displayed and centers header two */
 .card {
   background-color: hsl(0, 0%, 100%);
   border-radius: 5px;
@@ -42,6 +54,8 @@ header {
   padding: 30px 40px;
 }
 
+/* Class Selector & After Selector */
+/* Creates a line to separate header two and the dashed box */
 .card-header::after {
   content: " ";
   display: block;
@@ -50,14 +64,19 @@ header {
   height: 2px;
 }
 
+/* Class Selectors */
+/* Sets the minimum height for the card after resizing the browser window */
 .card-body {
   min-height: 100px;
 }
 
+/* Centers the red button  */
 .card-footer {
   text-align: center;
 }
 
+/* Class Selector & Before Selector */
+/* Creates a line between the dashed line box and the red button */
 .card-footer::before {
   content: " ";
   display: block;
@@ -66,12 +85,17 @@ header {
   height: 2px;
 }
 
+/* Class Selector & After Selector */
+/* Keeps the space between the button and card clear */
 .card-footer::after {
   content: " ";
   display: block;
   clear: both;
 }
 
+/* Class Selector */
+/* Styles and properly places the button */
+/* Changes the mouse arrow to a pointer when user hovers over the button */
 .btn {
   border: none;
   background-color: hsl(360, 91%, 36%);
@@ -88,15 +112,22 @@ header {
   cursor: pointer;
 }
 
+/* Element Selector */
+/* When user hovers over the button while choosing criteria, it does not change from an arrow to a pointer */
+/*  */
 button[disabled] {
   cursor: default;
   background: #c0c7cf;
 }
 
+/* GET RID OF?? */
 .float-right {
   float: right;
 }
 
+/* ID Selector */
+/* Styles the box with dashes */
+/* Ensures the box will remain fixed in the card and between the lines*/
 #password {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -118,6 +149,9 @@ button[disabled] {
   overflow: hidden;
 }
 
+/* Media Queries */
+/* Makes the button size and button font adjust when user re-sizes the window */
+/* Makes the password adjust when user re-sizes the window */
 @media (max-width: 690px) {
   .btn {
     font-size: 1rem;
