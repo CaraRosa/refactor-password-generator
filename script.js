@@ -81,6 +81,20 @@ function generatePassword() {
   return yourPassword;
 }
 
+// Shuffles the generated password to make it more random
+function shuffleArray (yourPassword) {
+  for (var i = yourPassword.length - 1; i > 0; i--) {
+
+    var j = Math.floor(Math.random() * (i + 1));
+
+    var temp = yourPassword[i];
+    yourPassword[i] = yourPassword[j];
+    yourPassword[j] = temp;
+  }
+  return yourPassword;
+}
+
+
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
