@@ -8,10 +8,10 @@ var specialCharacters = [" ", "!", "#", "$", "%", "&", "'", "(", ")", "*", "+", 
 
 // Declare variables
 var confirmLength = "";
-var confirmLowerCase;
-var confirmUpperCase;
-var confirmNumericChar;
-var confirmSpecialChar;
+var lowerCase;
+var upperCase;
+var numericCharacter;
+var specialCharacter;
 
 
 // Function that contains the code to generate a random password
@@ -22,27 +22,27 @@ function generatePassword() {
   while (confirmLength <= 8 || confirmLength >= 128) {
 
     var confirmLength = (prompt("Please enter the number of characters your password will have: ")); 
-    alert("The required length for the password is between 8-128 characters. Please start over.");
+    alert("The required length for the password is between 8-128 characters. Please choose a different password length.");
   
   }
   // Alerts the user to the character length of the password
   alert("Your password contains " + confirmLength + " characters.");
   
   // Confirm windows for the user to choose criteria for the password
-  var confirmLowerCase = confirm("Please click OK to confirm that your password will contain lowercase letters.");
-  var confirmUpperCase = confirm("Please click OK to confirm that your password will contain uppercase letters.")
-  var confirmNumericChar = confirm("Please click OK to confirm that your password will contain numbers.");
-  var confirmSpecialChar = confirm("Please click OK to confirm that your password will contain special characters.");
+  var lowerCase = confirm("Please click OK to confirm that your password will contain lowercase letters.");
+  var upperCase = confirm("Please click OK to confirm that your password will contain uppercase letters.")
+  var numericCharacter = confirm("Please click OK to confirm that your password will contain numbers.");
+  var specialCharacter = confirm("Please click OK to confirm that your password will contain special characters.");
 
   // while loops that sets all password criteria to false if user does not choose any criteria
   // Tells the user you have to choose at least one criteria to generate a password
-  while(confirmLowerCase === false && confirmUpperCase === false && confirmNumericChar === false && confirmSpecialChar === false) {
+  while(lowerCase === false && upperCase === false && numericCharacter === false && specialCharacter === false) {
     
     alert("Your password must have one of the set criteria.")
-    var confirmLowerCase = confirm("Please click OK to confirm that your password will contain lowercase letters.");
-    var confirmUpperCase = confirm("Please click OK to confirm that your password will contain uppercase letters.");
-    var confirmNumericChar = confirm("Please click OK to confirm that your password will contain numbers.");
-    var confirmSpecialChar = confirm("Please click OK to confirm that your password will contain special characters.");
+    var lowerCase = confirm("Please click OK to confirm that your password will contain lowercase letters.");
+    var upperCase = confirm("Please click OK to confirm that your password will contain uppercase letters.");
+    var numericCharacter = confirm("Please click OK to confirm that your password will contain numbers.");
+    var specialCharacter = confirm("Please click OK to confirm that your password will contain special characters.");
   
   }
 
@@ -50,20 +50,26 @@ function generatePassword() {
   var passwordCharacters = [];
 
   // If loops adding on characters to the end of the password if the user chooses the criteria
-  if(confirmUpperCase) {
+
+  if(lowerCase) {
+
+    passwordCharacters = passwordCharacters.concat(lowercaseLetters)
+
+  }
+  if(upperCase) {
 
     passwordCharacters = passwordCharacters.concat(uppercaseLetters)
 
   }
 
 
-  if(confirmNumericChar) {
+  if(numericCharacter) {
     
     passwordCharacters = passwordCharacters.concat(numbers)
 
   }
 
-  if(confirmSpecialChar) {
+  if(specialCharacter) {
     
     passwordCharacters = passwordCharacters.concat(specialCharacters)
   
@@ -81,7 +87,7 @@ function generatePassword() {
   return yourPassword;
 }
 
-// Shuffles the generated password to make it more random
+// Shuffles you password to randomize it
 function shuffleArray (yourPassword) {
   for (var i = yourPassword.length - 1; i > 0; i--) {
 
@@ -93,8 +99,6 @@ function shuffleArray (yourPassword) {
   }
   return yourPassword;
 }
-
-
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
