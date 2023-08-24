@@ -36,19 +36,20 @@ var confirmSpecialChar = confirm("Please click OK to confirm that your password 
   // while loops that sets all password criteria to false if user does not choose any criteria
   //Tells the user you have to choose at least one criteria to generate a password
   while(confirmLowerCase === false && confirmUpperCase === false && confirmNumericChar === false && confirmSpecialChar === false) {
+    
     alert("Your password must have one of the set criteria.")
     var confirmLowerCase = confirm("Please click OK to confirm that your password will contain lowercase letters.");
     var confirmUpperCase = confirm("Please click OK to confirm that your password will contain uppercase letters.");
     var confirmNumericChar = confirm("Please click OK to confirm that your password will contain numbers.");
     var confirmSpecialChar = confirm("Please click OK to confirm that your password will contain special characters.");
+
 }
 
 
   // Stores the password characters
   var passwordCharacters = [];
 
-// if loops adding on characters to the end of the password
-
+// if loops adding on characters to the end of the password if the user chooses the criteria
 if(confirmUpperCase) {
   passwordCharacters = passwordCharacters.concat(uppercaseLetters)
 }
@@ -66,6 +67,7 @@ if(confirmSpecialChar) {
 // Logs the password characters
   console.log("Password Character", passwordCharacters);
 
+  // Stores your randomly generated password
 var yourPassword = "";
 
 
@@ -79,61 +81,19 @@ var yourPassword = "";
   }
 
   var myPassword = "";
-  // Loop through lowercase characters
-  // var confirmLowerCase = confirm("Please click OK to confirm that your password will contain lowercase letters.");
-  // new password genrator
-
-  // for (var i = 0; i < confirmLength; i++) {
-    
-  //   // all characters
-  //   // passwordCharacters
-  //   // random number
-  //   // Math.floor(Math.random() * passwordCharacters.length)
-
-    
-  //   if (confirmLowerCase) {
-  //     myPassword = myPassword + lowercaseLetters[Math.floor(Math.random() * lowercaseLetters.length)];
-  //   }
-  //   console.log(yourPassword);
-
-  //   if (confirmUpperCase) {
-  //     myPassword = myPassword + uppercaseLetters[Math.floor(Math.random() * uppercaseLetters.length)];
-  //   }
-
-  //   if (confirmNumericChar) {
-  //     myPassword = myPassword + numbers[Math.floor(Math.random() * numbers.length)];
-  //   }
-
-  //   if (confirmSpecialChar) {
-  //     myPassword = myPassword + specialCharacters[Math.floor(Math.random() * specialCharacters.length)];
-  //   }
   
-  // }
   console.log("My password version 2", yourPassword);
-  // myPassword = myPassword.slice(0, confirmLength);
 
 
 
   // my initial password generator
 for (var i = 0; i < confirmLength; i++) {
+  
   yourPassword = yourPassword + passwordCharacters[Math.floor(Math.random() * passwordCharacters.length)];
-
-
-
-//   // all characters
-//   // passwordCharacters
-//   // random number
-//   // Math.floor(Math.random() * passwordCharacters.length)
-
-//   console.log(yourPassword);
   
 }
   return yourPassword;
 }
-
-// for (let i = 0; numberOfRequirements < 5; i++) {
-
-// }
 
 function writePassword() {
   var password = yourPassword();
