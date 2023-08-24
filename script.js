@@ -14,24 +14,26 @@ var confirmUpperCase;
 var confirmNumericChar;
 var confirmSpecialChar;
 
+
 // Function that contains the code to generate a random password
 function generatePassword() {
   var confirmLength = (prompt("Please enter the number of characters your password will have: "));
-
-// While Loop to check if password's set parameters are met
-while (confirmLength <= 8 || confirmLength >= 128) {
-  var confirmLength = (prompt("Please enter the number of characters your password will have: ")); 
-  alert("The required length for the password is between 8-128 characters. Please start over.");
   
-}
-// Alerts the user to the character length of the password
-alert("Your password contains " + confirmLength + " characters.");
+  // While Loop to check if password's set parameters are met 
+  while (confirmLength <= 8 || confirmLength >= 128) {
 
-// Confirm windows for the user to choose criteria for the password
-var confirmLowerCase = confirm("Please click OK to confirm that your password will contain lowercase letters.");
-var confirmUpperCase = confirm("Please click OK to confirm that your password will contain uppercase letters.")
-var confirmNumericChar = confirm("Please click OK to confirm that your password will contain numbers.");
-var confirmSpecialChar = confirm("Please click OK to confirm that your password will contain special characters.");
+    var confirmLength = (prompt("Please enter the number of characters your password will have: ")); 
+    alert("The required length for the password is between 8-128 characters. Please start over.");
+  
+  }
+  // Alerts the user to the character length of the password
+  alert("Your password contains " + confirmLength + " characters.");
+  
+  // Confirm windows for the user to choose criteria for the password
+  var confirmLowerCase = confirm("Please click OK to confirm that your password will contain lowercase letters.");
+  var confirmUpperCase = confirm("Please click OK to confirm that your password will contain uppercase letters.")
+  var confirmNumericChar = confirm("Please click OK to confirm that your password will contain numbers.");
+  var confirmSpecialChar = confirm("Please click OK to confirm that your password will contain special characters.");
 
   // while loops that sets all password criteria to false if user does not choose any criteria
   // Tells the user you have to choose at least one criteria to generate a password
@@ -42,41 +44,41 @@ var confirmSpecialChar = confirm("Please click OK to confirm that your password 
     var confirmUpperCase = confirm("Please click OK to confirm that your password will contain uppercase letters.");
     var confirmNumericChar = confirm("Please click OK to confirm that your password will contain numbers.");
     var confirmSpecialChar = confirm("Please click OK to confirm that your password will contain special characters.");
-
-}
+  
+  }
 
   // Stores the password characters
   var passwordCharacters = [];
 
-// If loops adding on characters to the end of the password if the user chooses the criteria
-if(confirmUpperCase) {
+  // If loops adding on characters to the end of the password if the user chooses the criteria
+  if(confirmUpperCase) {
 
-  passwordCharacters = passwordCharacters.concat(uppercaseLetters)
+    passwordCharacters = passwordCharacters.concat(uppercaseLetters)
 
-}
+  }
 
 
-if(confirmNumericChar) {
+  if(confirmNumericChar) {
+    
+    passwordCharacters = passwordCharacters.concat(numbers)
 
-  passwordCharacters = passwordCharacters.concat(numbers)
+  }
 
-}
-
-if(confirmSpecialChar) {
-
-  passwordCharacters = passwordCharacters.concat(specialCharacters)
-
-}
-
-// Stores your randomly generated password
-var yourPassword = "";
-
-// For loop that adds on characters randomly as long as the length does not exceed the user's chosen length for the password
-for (var i = 0; i < confirmLength; i++) {
+  if(confirmSpecialChar) {
+    
+    passwordCharacters = passwordCharacters.concat(specialCharacters)
   
-  yourPassword = yourPassword + passwordCharacters[Math.floor(Math.random() * passwordCharacters.length)];
+  }
+
+  // Stores your randomly generated password
+  var yourPassword = "";
+
+  // For loop that adds on characters randomly as long as the length does not exceed the user's chosen length for the password
+  for (var i = 0; i < confirmLength; i++) {
+    
+    yourPassword = yourPassword + passwordCharacters[Math.floor(Math.random() * passwordCharacters.length)];
   
-}
+  }
   return yourPassword;
 }
 
