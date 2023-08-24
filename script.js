@@ -19,11 +19,10 @@ function generatePassword() {
   var passwordLength = (prompt("Please enter the number of characters your password will have: "));
 
   while (passwordLength <= 8 || passwordLength >= 128) {
-    
+
     alert("The required length for the password is between 8-128 characters. Please choose a different password length.");
     var passwordLength = (prompt("Please enter the number of characters your password will have: ")); 
     
-  
   }
   // Alerts the user to the character length of the password
   alert("Your password contains " + passwordLength + " characters.");
@@ -90,8 +89,6 @@ function shuffleArray (yourPassword) {
   }
   return yourPassword;
 }
-
-
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
