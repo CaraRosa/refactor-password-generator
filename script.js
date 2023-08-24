@@ -13,7 +13,6 @@ var confirmLowerCase;
 var confirmUpperCase;
 var confirmNumericChar;
 var confirmSpecialChar;
-var numberOfRequirements = 4;
 
 function generatePassword() {
   var confirmLength = (prompt("Please enter the number of characters your password will have: "));
