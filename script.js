@@ -7,85 +7,76 @@ var numbers = ["0", "1", "2", "4", "5", "6", "7", "8", "9"];
 var specialCharacters = [" ", "!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "]", "^", "_", "`", "{", "|", "}", "~"];
 
 // Declare variables
-var confirmLength = "";
-var lowerCase;
-var upperCase;
-var numericCharacter;
-var specialCharacter;
-
+var passwordLength = "";
+var addLowercase;
+var addUppercase;
+var addNumericCharacter;
+var addSpecialCharacter;
 
 // Function that contains the code to generate a random password
 function generatePassword() {
-  var confirmLength = (prompt("Please enter the number of characters your password will have: "));
-  
-  // While Loop to check if password's set parameters are met 
-  while (confirmLength <= 8 || confirmLength >= 128) {
 
-    var confirmLength = (prompt("Please enter the number of characters your password will have: ")); 
+  var passwordLength = (prompt("Please enter the number of characters your password will have: "));
+
+  while (passwordLength <= 8 || passwordLength >= 128) {
+    
     alert("The required length for the password is between 8-128 characters. Please choose a different password length.");
+    var passwordLength = (prompt("Please enter the number of characters your password will have: ")); 
+    
   
   }
   // Alerts the user to the character length of the password
-  alert("Your password contains " + confirmLength + " characters.");
-  
-  // Confirm windows for the user to choose criteria for the password
-  var lowerCase = confirm("Please click OK to confirm that your password will contain lowercase letters.");
-  var upperCase = confirm("Please click OK to confirm that your password will contain uppercase letters.")
-  var numericCharacter = confirm("Please click OK to confirm that your password will contain numbers.");
-  var specialCharacter = confirm("Please click OK to confirm that your password will contain special characters.");
+  alert("Your password contains " + passwordLength + " characters.");
+
+  var addLowercase = confirm("Please click OK to confirm that your password will var contain lowercase letters.");
+  var addUppercase = confirm("Please click OK to confirm that your password will contain uppercase letters.")
+  var addNumericCharacter = confirm("Please click OK to confirm that your password will contain numbers.");
+  var addSpecialCharacter = confirm("Please click OK to confirm that your password will contain special characters.");
 
   // while loops that sets all password criteria to false if user does not choose any criteria
   // Tells the user you have to choose at least one criteria to generate a password
-  while(lowerCase === false && upperCase === false && numericCharacter === false && specialCharacter === false) {
+  while(addLowercase === false && addUppercase === false && addNumericCharacter === false && addSpecialCharacter === false) {
     
     alert("Your password must have one of the set criteria.")
-    var lowerCase = confirm("Please click OK to confirm that your password will contain lowercase letters.");
-    var upperCase = confirm("Please click OK to confirm that your password will contain uppercase letters.");
-    var numericCharacter = confirm("Please click OK to confirm that your password will contain numbers.");
-    var specialCharacter = confirm("Please click OK to confirm that your password will contain special characters.");
+    var addLowercase = confirm("Please click OK to confirm that your password will contain lowercase letters.");
+    var addUppercase = confirm("Please click OK to confirm that your password will contain uppercase letters.");
+    var addNumericCharacter = confirm("Please click OK to confirm that your password will contain numbers.");
+    var addSpecialCharacter = confirm("Please click OK to confirm that your password will contain special characters.");
   
   }
 
   // Stores the password characters
   var passwordCharacters = [];
 
-  // If loops adding on characters to the end of the password if the user chooses the criteria
-
-  if(lowerCase) {
-
-    passwordCharacters = passwordCharacters.concat(lowercaseLetters)
-
-  }
-  if(upperCase) {
-
-    passwordCharacters = passwordCharacters.concat(uppercaseLetters)
-
+  if(addLowercase) {
+    passwordCharacters = passwordCharacters.concat(lowercaseLetters);
   }
 
+  if(addUppercase) {
+    passwordCharacters = passwordCharacters.concat(uppercaseLetters);
+  }
 
-  if(numericCharacter) {
+  if(addNumericCharacter) {
+    passwordCharacters = passwordCharacters.concat(numbers);
+  }
+
+  if(addSpecialCharacter) {
+    passwordCharacters = passwordCharacters.concat(specialCharacters);
+  }
+
+    // Stores your randomly generated password
+    var yourPassword = "";
+
+    // For loop that adds on characters randomly as long as the length does not exceed the user's chosen length for the password
+    for (var i = 0; i < passwordLength; i++) {
+      
+      yourPassword = yourPassword + passwordCharacters[Math.floor(Math.random() * passwordCharacters.length)];
     
-    passwordCharacters = passwordCharacters.concat(numbers)
+    }
 
-  }
-
-  if(specialCharacter) {
-    
-    passwordCharacters = passwordCharacters.concat(specialCharacters)
-  
-  }
-
-  // Stores your randomly generated password
-  var yourPassword = "";
-
-  // For loop that adds on characters randomly as long as the length does not exceed the user's chosen length for the password
-  for (var i = 0; i < confirmLength; i++) {
-    
-    yourPassword = yourPassword + passwordCharacters[Math.floor(Math.random() * passwordCharacters.length)];
-  
-  }
-  return yourPassword;
+    return yourPassword;  
 }
+
 
 // Shuffles you password to randomize it
 function shuffleArray (yourPassword) {
@@ -99,6 +90,8 @@ function shuffleArray (yourPassword) {
   }
   return yourPassword;
 }
+
+
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
@@ -114,3 +107,4 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
