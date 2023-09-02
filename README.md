@@ -8,7 +8,7 @@ This project focuses on JavaScript to build the random password generator. Funct
 
 ## Installation
 
-No installation is needed. Here is the link to the application: [Link]()
+No installation is needed. Here is the link to the application: [Random Password Generator](https://cararosa.github.io/refactor-password-generator/)
 
 Below is an image of the website with the first prompt:
 
